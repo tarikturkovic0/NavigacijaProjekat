@@ -14,7 +14,10 @@ class CityAdapter(private val context: Context, private val dataset: List<City>)
     : RecyclerView.Adapter<CityAdapter.CityViewHolder>()
 {
     class CityViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.city_id)
+        val cityNameText: TextView = view.findViewById(R.id.city_id)
+        val cityLatText :TextView = view.findViewById(R.id.city_lat)
+        val cityLonText :TextView = view.findViewById(R.id.city_lon)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
@@ -25,7 +28,9 @@ class CityAdapter(private val context: Context, private val dataset: List<City>)
 
     override fun onBindViewHolder(holder: CityViewHolder, position: Int) {
         val city = dataset[position]
-        holder.textView.text = context.resources.getString(city.stringResourceId)
+        holder.cityNameText.text = city.name
+        holder.cityLatText.text = city.latitude.toString()
+        holder.cityLonText.text = city.longitude.toString()
 
     }
 
