@@ -21,7 +21,9 @@ class HomeFragment : Fragment() {
         binding.showCitiesBtn.setOnClickListener { view: View ->
                 view.findNavController().navigate(R.id.action_homeFragment_to_citiesListFragment2)
         }
-
+        binding.addCityBtn.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_homeFragment_to_addCity2)
+        }
         return binding.root
     }
 

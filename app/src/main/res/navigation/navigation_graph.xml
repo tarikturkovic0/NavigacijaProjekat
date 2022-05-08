@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_homeFragment_to_citiesListFragment2"
             app:destination="@id/citiesListFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_addCity2"
+            app:destination="@id/addCity2" />
     </fragment>
     <fragment
         android:id="@+id/citiesListFragment2"
         android:name="com.example.navigacijaprojekat.CitiesListFragment"
         android:label="fragment_cities_list"
         tools:layout="@layout/fragment_cities_list" />
+    <fragment
+        android:id="@+id/addCity2"
+        android:name="com.example.navigacijaprojekat.AddCity"
+        android:label="fragment_add_city"
+        tools:layout="@layout/fragment_add_city" />
 </navigation>
