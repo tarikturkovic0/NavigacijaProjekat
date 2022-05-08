@@ -1,8 +1,13 @@
 package com.example.navigacijaprojekat.model.data
+
+
 import com.example.navigacijaprojekat.R
 import com.example.navigacijaprojekat.model.City
 
-class DataSource {
+
+class DataSource(val cities : String?) {
+
+
     fun loadCityData() : List<City> {
         return listOf<City>(
             City(R.string.showLocations) ,

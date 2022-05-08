@@ -1,16 +1,17 @@
 package com.example.navigacijaprojekat
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.navigacijaprojekat.adapter.CityAdapter
 import com.example.navigacijaprojekat.databinding.FragmentCitiesListBinding
-import com.example.navigacijaprojekat.model.City
 import com.example.navigacijaprojekat.model.data.DataSource
 
 class CitiesListFragment : Fragment() {
@@ -36,7 +37,16 @@ class CitiesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.rv;
-        val cityDataSet = DataSource().loadCityData()
+        val preferences = view.context.getSharedPreferences("Cities", Context.MODE_PRIVATE)
+        val cities: String = getString(R.string.defaultCities)
+
+        val editor : SharedPreferences.Editor  = preferences.edit().putString("cities",cities)
+        editor.commit()
+        val citiesPreferences = view.context.getSharedPreferences("Cities", Context.MODE_PRIVATE)
+        val citiesString  = citiesPreferences.getString("cities",null)
+
+        val cityDataSet = DataSource(citiesString).loadCityData()
+
         recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = CityAdapter(view.context,cityDataSet)
