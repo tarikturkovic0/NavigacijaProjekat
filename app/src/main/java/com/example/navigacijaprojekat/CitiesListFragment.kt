@@ -65,7 +65,7 @@ class CitiesListFragment : Fragment() {
 
 val citiesJSON = """
             [{
-			"name": "Tokyo–Yokohama",
+			"name": "Tokyo",
 			"latitude": 35.5147457,
 			"longitude": 139.4839981,
             "country" : "Japan"
@@ -107,7 +107,7 @@ val citiesJSON = """
             "country" : "Mexico"
 		},
 		{
-			"name": "Guangzhou–Foshan",
+			"name": "Guangzhou",
 			"latitude": 23.1592862,
 			"longitude": 113.4566381,
             "country" : "China"
@@ -125,7 +125,7 @@ val citiesJSON = """
 "country" : "Bangladesh"
 		},
 		{
-			"name": "Osaka–Kobe–Kyoto",
+			"name": "Osaka–Kobe",
 			"latitude": 34.8038695,
 			"longitude": 135.5156628,
 "country" : "Japan"
@@ -239,7 +239,7 @@ val citiesJSON = """
 "country" : "Pakistan"
 		},
 		{
-			"name": "Ho Chi Minh City",
+			"name": "Ho Chi Minh",
 			"latitude": 10.6497452,
 			"longitude": 106.7619794,
 "country" : "China"
@@ -359,7 +359,7 @@ val citiesJSON = """
 
 		},
 		{
-			"name": "Washington, D.C.-Baltimore",
+			"name": "Washington, D.C.",
 			"latitude": 39.2908816,
 			"longitude": -76.610759,
 "country" : "USA"
@@ -394,7 +394,7 @@ val citiesJSON = """
 
 		},
 		{
-			"name": "Johannesburg–East Rand",
+			"name": "Johannesburg",
 			"latitude": 35.3732015,
 			"longitude": -117.6432874,
 "country" : "South Africa"
@@ -408,7 +408,7 @@ val citiesJSON = """
 
 		},
 		{
-			"name": "Boston-Providence",
+			"name": "Boston",
 			"latitude": 41.7048225,
 			"longitude": -71.5483952,
 "country" : "USA"
@@ -429,7 +429,7 @@ val citiesJSON = """
 
 		},
 		{
-			"name": "Toronto–Hamilton",
+			"name": "Toronto",
 			"latitude": 43.6706177,
 			"longitude": -79.3746817,
 "country" : "Canada"
@@ -443,7 +443,7 @@ val citiesJSON = """
 
 		},
 		{
-			"name": "Dallas–Fort Worth",
+			"name": "Fort Worth",
 			"latitude": 32.7379037,
 			"longitude": -97.2394281,
 "country" : "USA"
@@ -520,7 +520,7 @@ val citiesJSON = """
 
 		},
 		{
-			"name": "San Francisco-San Jose",
+			"name": "San Jose",
 			"latitude": 8.3512768,
 			"longitude": -81.0390519,
 "country" : "USA"
