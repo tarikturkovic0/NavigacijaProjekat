@@ -21,10 +21,25 @@
         android:id="@+id/citiesListFragment2"
         android:name="com.example.navigacijaprojekat.CitiesListFragment"
         android:label="fragment_cities_list"
-        tools:layout="@layout/fragment_cities_list" />
+        tools:layout="@layout/fragment_cities_list" >
+        <action
+            android:id="@+id/action_citiesListFragment2_to_cityDetailsFragment2"
+            app:destination="@id/cityDetailsFragment2"
+
+            />
+    </fragment>
     <fragment
         android:id="@+id/addCity2"
         android:name="com.example.navigacijaprojekat.AddCity"
         android:label="fragment_add_city"
         tools:layout="@layout/fragment_add_city" />
+    <fragment
+        android:id="@+id/cityDetailsFragment2"
+        android:name="com.example.navigacijaprojekat.CityDetailsFragment"
+        android:label="fragment_city_details"
+        tools:layout="@layout/fragment_city_details" >
+        <argument
+            android:name="country"
+            app:argType="string" />
+    </fragment>
 </navigation>

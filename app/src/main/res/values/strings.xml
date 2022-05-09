@@ -3,5 +3,8 @@
     <string name="welcome">DOBRODOŠLI</string>
     <string name="showLocations">Prikaži gradove</string>
     <string name="addLocation">Dodaj lokaciju</string>
+    <string name="lociraj">Lociraj</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detalji">Detalji</string>
 
 </resources>
