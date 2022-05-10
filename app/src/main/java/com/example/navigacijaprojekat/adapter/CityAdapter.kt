@@ -24,8 +24,8 @@ class CityAdapter(private val context: Context, private val dataset: List<City>)
         val cityLonText :TextView = view.findViewById(R.id.city_lon)
         val mapsButton : Button = view.findViewById(R.id.mapsButton)
         val detailsButton : Button = view.findViewById(R.id.detailsButton)
-        public fun detailsSetup(data : String) {
-            val action = CitiesListFragmentDirections.actionCitiesListFragment2ToCityDetailsFragment2(data)
+        public fun detailsSetup(country : String,latituda : String,longituda : String,naziv : String) {
+            val action = CitiesListFragmentDirections.actionCitiesListFragment2ToCityDetailsFragment2(country,latituda,longituda,naziv)
 
             detailsButton.setOnClickListener {
 
@@ -52,7 +52,7 @@ class CityAdapter(private val context: Context, private val dataset: List<City>)
            val chooser : Intent = Intent.createChooser(intent,"Launch maps")
            context.startActivity(chooser)
        }
-        holder.detailsSetup(city.country)
+        holder.detailsSetup(city.country,city.latitude.toString(),city.longitude.toString(),city.name)
 
     }
 

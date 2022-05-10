@@ -39,8 +39,10 @@ class CitiesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.rv;
+
+        // TODO : mozda cu morat premjestit ovaj dio koda negdje drugo
         val preferences = view.context.getSharedPreferences("Cities", Context.MODE_PRIVATE)
-        if (!preferences.contains("name")) { // Prvi put ikada kada se pokrene app nece imati ( Ovo mozda radi nisam siguran)
+        if (!preferences.contains("Cities")) { // Prvi put ikada kada se pokrene app nece imati ( Ovo mozda radi nisam siguran)
             val editor : SharedPreferences.Editor  = preferences.edit().putString("cities",
                 citiesJSON)
             editor.commit()

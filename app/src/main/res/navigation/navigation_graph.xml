@@ -52,5 +52,14 @@
         <argument
             android:name="country"
             app:argType="string" />
+        <argument
+            android:name="latituda"
+            app:argType="string" />
+        <argument
+            android:name="longituda"
+            app:argType="string" />
+        <argument
+            android:name="naziv"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -1,8 +1,6 @@
 package com.example.navigacijaprojekat.model.data
 
 
-import android.util.Log
-import com.example.navigacijaprojekat.model.Cities
 import com.example.navigacijaprojekat.model.City
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.decodeFromString

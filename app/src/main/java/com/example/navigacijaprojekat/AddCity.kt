@@ -1,25 +1,23 @@
 package com.example.navigacijaprojekat
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.navigacijaprojekat.databinding.FragmentAddCityBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AddCity.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AddCity : Fragment() {
+    private var _binding: FragmentAddCityBinding? = null
+    private val binding get() = _binding!!
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(
@@ -27,8 +25,30 @@ class AddCity : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_city, container, false)
+        _binding = FragmentAddCityBinding.inflate(inflater, container, false)
+        return binding.root
+
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+       /* // OVO CU DOVRSIT,NE RADI.
+        val preferences = view.context.getSharedPreferences("Cities", Context.MODE_PRIVATE)
 
+        val citiesString  = preferences.getString("cities",null)
+        val insertPosition = citiesString!!.indexOf(']')
+        binding.submitButton.setOnClickListener { view : View ->
+            val updatedCities = StringBuilder(citiesString).insert(insertPosition!!,
+                """{name:"${binding.nazivGrada.text.toString()}","latitude":"${binding.latituda.text.toString()}",
+                    "longitude":"${binding.longituda.text}","country":"${binding.drzava.text}" "}]""".trimMargin()).toString()
+        val editor : SharedPreferences.Editor  = preferences.edit().putString("cities",
+                updatedCities)
+            editor.apply()
+        }*/
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

@@ -9,7 +9,7 @@
     tools:context=".AddCity">
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/latituda"
         style="@android:style/Widget.EditText"
         android:layout_width="215dp"
         android:layout_height="52dp"
@@ -25,10 +25,10 @@
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/longituda" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/longituda"
         style="@android:style/Widget.EditText"
         android:layout_width="215dp"
         android:layout_height="52dp"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/drzava"
         style="@android:style/Widget.EditText"
         android:layout_width="215dp"
         android:layout_height="52dp"
@@ -61,14 +61,14 @@
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
+        app:layout_constraintBottom_toTopOf="@+id/longituda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/nazivGrada"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/nazivGrada"
         style="@android:style/Widget.EditText"
         android:layout_width="215dp"
         android:layout_height="52dp"
@@ -109,7 +109,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/submitButton"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:backgroundTint="#B9000000"
@@ -121,6 +121,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4"
+        app:layout_constraintTop_toBottomOf="@+id/latituda"
         app:layout_constraintVertical_bias="0.297" />
 </androidx.constraintlayout.widget.ConstraintLayout>
