@@ -403,7 +403,7 @@ val citiesJSON = """
 
 		},
 		{
-			"name": "Zhengzhou–Xingyang",
+			"name": "Xingyang",
 			"latitude": 34.7891274,
 			"longitude": 113.3724566,
 "country" : "China"

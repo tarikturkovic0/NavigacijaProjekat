@@ -20,8 +20,6 @@ class CityAdapter(private val context: Context, private val dataset: List<City>)
 {
     class CityViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val cityNameText: TextView = view.findViewById(R.id.city_id)
-        val cityLatText :TextView = view.findViewById(R.id.city_lat)
-        val cityLonText :TextView = view.findViewById(R.id.city_lon)
         val mapsButton : Button = view.findViewById(R.id.mapsButton)
         val detailsButton : Button = view.findViewById(R.id.detailsButton)
         public fun detailsSetup(country : String,latituda : String,longituda : String,naziv : String) {
@@ -43,8 +41,6 @@ class CityAdapter(private val context: Context, private val dataset: List<City>)
     override fun onBindViewHolder(holder: CityViewHolder, position: Int) {
         val city = dataset[position]
         holder.cityNameText.text = city.name
-        holder.cityLatText.text = city.latitude.toString()
-        holder.cityLonText.text = city.longitude.toString()
 
        holder.mapsButton.setOnClickListener {
            val intent : Intent = Intent(Intent.ACTION_VIEW)
