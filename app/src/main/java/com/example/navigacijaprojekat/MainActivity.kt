@@ -9,9 +9,9 @@ import androidx.databinding.DataBindingUtil
 import com.example.navigacijaprojekat.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
-
         val preferences = getSharedPreferences("Cities", Context.MODE_PRIVATE)
         val cities = preferences.getString("cities",null)
         if (cities == null) { // Prvi put ikada kada se pokrene app nece imati ( Ovo mozda radi nisam siguran)
