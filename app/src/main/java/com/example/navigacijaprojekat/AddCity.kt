@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -13,6 +14,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.navigacijaprojekat.databinding.FragmentAddCityBinding
+import com.google.android.gms.common.api.internal.LifecycleCallback.getFragment
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
@@ -41,14 +43,13 @@ class AddCity : Fragment() {
 
     }
 
-    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.getItemId() == R.id.home){
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if(true) {
             requireView().findNavController().navigate(com.example.navigacijaprojekat.R.id.action_homeFragment_to_citiesListFragment2)
         }
         return super.onOptionsItemSelected(item)
     }
-    OVDJE SAM STAO S RADOM
-    */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val preferences = view.context.getSharedPreferences("Cities", Context.MODE_PRIVATE)

@@ -12,4 +12,6 @@
         android:layout_height="100dp"
         android:layout_weight="1"
         app:srcCompat="@drawable/uncover_logo_png" />
+
+
 </LinearLayout>
