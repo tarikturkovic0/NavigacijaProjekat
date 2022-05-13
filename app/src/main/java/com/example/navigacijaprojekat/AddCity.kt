@@ -1,6 +1,5 @@
 package com.example.navigacijaprojekat
 
-import android.R
 import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
@@ -11,6 +10,8 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.navigacijaprojekat.databinding.FragmentAddCityBinding
@@ -23,8 +24,14 @@ import com.google.android.material.snackbar.Snackbar
 class AddCity : Fragment() {
     private var _binding: FragmentAddCityBinding? = null
     private val binding get() = _binding!!
-
+    lateinit var toggle : ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val drawerLayout : DrawerLayout? = view?.findViewById(R.id.dodaj_grad)
+        val navView : NavigationView? = view?.findViewById(R.id.nav_view)
+
+        toggle = ActionBarDrawerToggle()
+
         super.onCreate(savedInstanceState)
 
     }
@@ -35,7 +42,6 @@ class AddCity : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
 
         _binding = FragmentAddCityBinding.inflate(inflater, container, false)
 
