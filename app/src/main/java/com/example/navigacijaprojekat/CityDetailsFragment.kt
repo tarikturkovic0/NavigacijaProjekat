@@ -15,10 +15,11 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
+import java.util.*
 
 
-class CityDetailsFragment : Fragment(), OnMapReadyCallback{
-    private var mMapView: MapView? = null
+class CityDetailsFragment : Fragment(){
+
 
 
     override fun onCreateView(
@@ -26,74 +27,17 @@ class CityDetailsFragment : Fragment(), OnMapReadyCallback{
         savedInstanceState: Bundle?
     ): View? {
          //Inflate the layout for this fragment
-        mMapView = view?.findViewById(R.id.mapView)
 
-        initGoogleMap(savedInstanceState);
         return inflater.inflate(R.layout.fragment_city_details, container, false)
     }
 
-    private fun initGoogleMap(savedInstanceState: Bundle?) {
-        var mapViewBundle: Bundle? = null
-        if (savedInstanceState != null) {
-            mapViewBundle = savedInstanceState.getBundle("AIzaSyAFE0EFR841EGUh_RSl0lqGzRpyMzQrnBo")
-        }
 
-        mMapView?.onCreate(mapViewBundle)
-        mMapView?.getMapAsync(this)
 
-    }
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        var mapViewBundle = outState.getBundle("AIzaSyAFE0EFR841EGUh_RSl0lqGzRpyMzQrnBo")
-        if (mapViewBundle == null) {
-            mapViewBundle = Bundle()
-            outState.putBundle("AIzaSyAFE0EFR841EGUh_RSl0lqGzRpyMzQrnBo", mapViewBundle)
-        }
-        mMapView?.onSaveInstanceState(mapViewBundle)
     }
 
-    override fun onResume() {
-        super.onResume()
-        mMapView?.onResume()
-    }
 
-    override fun onStart() {
-        super.onStart()
-        mMapView?.onStart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        mMapView?.onStop()
-    }
-
-    override fun onMapReady(map: GoogleMap) {
-        if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
-            != PackageManager.PERMISSION_GRANTED
-            && ActivityCompat.checkSelfPermission(
-                requireActivity(),
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            )
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            return
-        }
-    }
-
-    override fun onPause() {
-        mMapView?.onPause()
-        super.onPause()
-    }
-
-    override fun onDestroy() {
-        mMapView?.onDestroy()
-        super.onDestroy()
-    }
-
-    override fun onLowMemory() {
-        super.onLowMemory()
-        mMapView?.onLowMemory()
-    }
     val args: CityDetailsFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
