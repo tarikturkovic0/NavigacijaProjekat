@@ -10,7 +10,6 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
@@ -25,7 +24,11 @@ import com.google.android.material.snackbar.Snackbar
 class AddCity : Fragment() {
     private var _binding: FragmentAddCityBinding? = null
     private val binding get() = _binding!!
+    lateinit var toggle : ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val drawerLayout : DrawerLayout? = view?.findViewById(R.id.dodaj_grad)
+        val navView : NavigationView? = view?.findViewById(R.id.nav_view)
 
 
         super.onCreate(savedInstanceState)
@@ -36,7 +39,7 @@ class AddCity : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         // Inflate the layout for this fragment
 
         _binding = FragmentAddCityBinding.inflate(inflater, container, false)
@@ -54,21 +57,9 @@ class AddCity : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val drawerLayout : DrawerLayout? = view.findViewById(R.id.dodaj_grad)
-        val navView : NavigationView? = view.findViewById(R.id.nav_view)
-
-
-        navView!!.setNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.home -> requireView().findNavController().navigate(R.id.action_addCity2_to_homeFragment)
-                R.id.lokacije -> requireView().findNavController().navigate(R.id.action_addCity2_to_citiesListFragment2)
-            }
-            true
-        }
         val preferences = view.context.getSharedPreferences("Cities", Context.MODE_PRIVATE)
         val citiesString  = preferences.getString("cities",null)
         val insertPosition = citiesString!!.indexOf(']')
-
         binding.submitButton.setOnClickListener {
             val updatedCities = StringBuilder(citiesString).insert(insertPosition,
                 """,{"name":"${binding.nazivGrada.text.toString()}", "latitude":"${binding.latituda.text.toString()}",

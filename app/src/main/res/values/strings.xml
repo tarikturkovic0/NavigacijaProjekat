@@ -10,6 +10,7 @@
     <string name="podijeli">PODIJELI</string>
     <string name="open">OPEN</string>
     <string name="close">CLOSE</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 
 </resources>

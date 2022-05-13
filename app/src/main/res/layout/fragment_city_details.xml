@@ -70,7 +70,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/locirajBtn"
         android:layout_width="129dp"
         android:layout_height="66dp"
         android:layout_marginBottom="60dp"
@@ -87,7 +87,7 @@
         android:layout_marginBottom="60dp"
         android:text="@string/podijeli"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/button2"
+        app:layout_constraintEnd_toEndOf="@id/locirajBtn"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent" />
 
