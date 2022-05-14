@@ -49,5 +49,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(city).title("Marker in ${cityName}"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(city))
     }
-
+    //radi
 }
