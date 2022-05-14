@@ -1,16 +1,14 @@
 package com.example.navigacijaprojekat
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.AlarmClock.EXTRA_MESSAGE
-
+import androidx.appcompat.app.AppCompatActivity
+import com.example.navigacijaprojekat.databinding.ActivityMapsBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.example.navigacijaprojekat.databinding.ActivityMapsBinding
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -27,6 +25,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+
     }
 
     /**
@@ -45,7 +45,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val longitude = intent.getStringExtra("longitude")?.toDouble()
         val cityName = intent.getStringExtra("city")
         val city = LatLng(latitude!!, longitude!!)
+
         mMap.addMarker(MarkerOptions().position(city).title("Marker in ${cityName}"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(city))
     }
+
 }

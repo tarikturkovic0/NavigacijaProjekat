@@ -58,7 +58,7 @@ class CityDetailsFragment : Fragment(){
 
 
         locirajBtn.setOnClickListener {
-            val intent = Intent(context, MainActivity::class.java).apply {
+            val intent = Intent(context, MapsActivity::class.java).apply {
                 putExtra("city",args.naziv)
                 putExtra("latitude", args.latituda)
                 putExtra("longitude", args.longituda)
