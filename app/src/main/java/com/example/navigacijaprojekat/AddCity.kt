@@ -27,10 +27,6 @@ class AddCity : Fragment() {
     lateinit var toggle : ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        val drawerLayout : DrawerLayout? = view?.findViewById(R.id.dodaj_grad)
-        val navView : NavigationView? = view?.findViewById(R.id.nav_view)
-
-
         super.onCreate(savedInstanceState)
 
     }
@@ -57,6 +53,17 @@ class AddCity : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val drawerLayout : DrawerLayout? = view.findViewById(R.id.dodaj_grad)
+        val navView : NavigationView? = view.findViewById(R.id.nav_view)
+
+
+        navView!!.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.home -> requireView().findNavController().navigate(R.id.action_addCity2_to_homeFragment)
+                R.id.lokacije -> requireView().findNavController().navigate(R.id.action_addCity2_to_citiesListFragment2)
+            }
+            true
+        }
         val preferences = view.context.getSharedPreferences("Cities", Context.MODE_PRIVATE)
         val citiesString  = preferences.getString("cities",null)
         val insertPosition = citiesString!!.indexOf(']')

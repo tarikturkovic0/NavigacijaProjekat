@@ -3,6 +3,8 @@ package com.example.navigacijaprojekat
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.navigacijaprojekat.databinding.ActivityMapsBinding
 import com.example.navigacijaprojekat.model.City
@@ -51,13 +53,28 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
     }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.app_bar, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.podijeli -> {
+            // User chose the "Settings" item, show the app settings UI...
+            true
+        }
+        else -> {
+            true
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         createDistanceMatrix()
-
+        setSupportActionBar(findViewById(R.id.toolbar))
+        getSupportActionBar()?.setDisplayShowTitleEnabled(false);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         /*TEST for (strings in distanceMatrix) {
             for (string in strings) {
                Log.d("distanca",string.toString())
@@ -87,11 +104,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
     // 1.Naci  distancu od svakog grada do svakog drugog grada - to ce biti 2d matrica -- GOTOVO
     // 2. Naci sve moguce permutacije iz liste gradova.
-    // 3. Za svaku permutaciju izracunati ukupnu distancu (koristeci matricu znat cu koji je grad gdje...)
+    // 3. Za svaku permutaciju izracunati ukupnu distancu
+// +(koristeci matricu znat cu koji je grad gdje...)
     // 4. Vratit najmanju distancu
 
 
-    // BELAJ JE STO IMAMO 100+ GRADOVA A OVAJ ALGORITAM CE DA POGINE NA PREKO DESETAK GRADOVA KOLIKO SAM UPRATIO
+    // BELAJ JE STO IMAMO 100+ GRADOVA
+// A OVAJ ALGORITAM CE DA POGINE NA PREKO DESETAK GRADOVA KOLIKO SAM UPRATIO
 
 
 }

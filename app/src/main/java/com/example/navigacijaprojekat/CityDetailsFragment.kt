@@ -35,6 +35,7 @@ class CityDetailsFragment : Fragment(){
     val args: CityDetailsFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        
         val tv1: TextView = view.findViewById(R.id.countryText)
         tv1.text = args.country
         val latituda : TextView = view.findViewById(R.id.latitudaText)
