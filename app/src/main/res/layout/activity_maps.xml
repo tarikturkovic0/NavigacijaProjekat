@@ -23,16 +23,33 @@
 
 
     <TextView
-        android:id="@+id/test"
+        android:id="@+id/putanja"
         android:layout_width="match_parent"
-        android:layout_height="92dp"
-        android:layout_marginTop="268dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
         android:background="#20000000"
         android:fontFamily="sans-serif-condensed"
-        android:text="testtttttt"
+        android:text="@string/calculating"
         android:textAlignment="center"
         android:textColor="#FFF"
-        android:textSize="30sp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@id/map"
+        app:layout_constraintTop_toTopOf="@id/map" />
+
+    <TextView
+        android:id="@+id/distanca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+
+        android:background="#20000000"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/calculating"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@id/map"

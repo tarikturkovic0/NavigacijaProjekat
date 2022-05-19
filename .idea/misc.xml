@@ -4,7 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Amir/Downloads/NavigacijaProjekat-main/NavigacijaProjekat-main/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/Amir/Downloads/NavigacijaProjekat-main/NavigacijaProjekat-main/app/src/main/res/layout/activity_maps.xml" value="0.11195542046605876" />
+        <entry key="..\:/Users/Amir/Downloads/NavigacijaProjekat-main/NavigacijaProjekat-main/app/src/main/res/layout/activity_maps.xml" value="0.22" />
         <entry key="..\:/Users/Amir/Downloads/NavigacijaProjekat-main/NavigacijaProjekat-main/app/src/main/res/layout/city_view.xml" value="0.10511651469098278" />
         <entry key="..\:/Users/Amir/Downloads/NavigacijaProjekat-main/NavigacijaProjekat-main/app/src/main/res/layout/fragment_cities_list.xml" value="0.15526849037487336" />
         <entry key="..\:/Users/Amir/Downloads/NavigacijaProjekat-main/NavigacijaProjekat-main/app/src/main/res/layout/fragment_city_details.xml" value="0.18" />
@@ -16,8 +16,7 @@
         <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/drawable/ic_launcher_background.xml" value="0.228" />
         <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/drawable/layout_border.xml" value="0.2745" />
         <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/drawable/side_nav_bar.xml" value="0.228" />
-        <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/layout/activity_maps.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/layout/add_city.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/layout/city_view.xml" value="0.5" />
         <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/layout/content_forma.xml" value="0.27291666666666664" />
@@ -27,7 +26,6 @@
         <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/layout/fragment_home.xml" value="0.36414176511466295" />
         <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/layout/layout_border.xml" value="0.2563405797101449" />
         <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/layout/nav_header_forma.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/turko/AndroidStudioProjects/Navigacija/app/src/main/res/menu/app_bar.xml" value="0.27291666666666664" />
       </map>
     </option>
   </component>

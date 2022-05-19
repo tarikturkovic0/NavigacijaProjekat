@@ -12,6 +12,7 @@
     <string name="open">OPEN</string>
     <string name="close">CLOSE</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="calculating">Calculating....</string>
 
 
 </resources>

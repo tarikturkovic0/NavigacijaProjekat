@@ -77,18 +77,41 @@ val citiesJSON = """
 			"longitude": 106.827183,
             "country" : "Indonesia"
 		},
-		{
+	    {
 			"name": "Delhi",
 			"latitude": 28.6517178,
 			"longitude": 77.2219388,
             "country" : "India"
 		},
-		{
+        {
 			"name": "Seoul-Incheon",
 			"latitude": 37.5056926,
 			"longitude": 126.7358775,
              "country" : "South Korea"
 		},
+{
+			"name": "Mumbai",
+			"latitude": 18.9387711,
+			"longitude": 72.8353355,
+             "country" : "India"
+		},
+		{
+			"name": "Mexico City",
+			"latitude": 19.4326296,
+			"longitude": -99.1331785,
+            "country" : "Mexico"
+		},
+		{
+			"name": "Guangzhou",
+			"latitude": 23.1592862,
+			"longitude": 113.4566381,
+            "country" : "China"
+		}
+
+        ]""".trimIndent()
+/*
+
+
 		{
 			"name": "Mumbai",
 			"latitude": 18.9387711,
@@ -718,4 +741,5 @@ val citiesJSON = """
 
 		}
 	]
-        """.trimIndent()
+	""".trimIndent()
+ */
