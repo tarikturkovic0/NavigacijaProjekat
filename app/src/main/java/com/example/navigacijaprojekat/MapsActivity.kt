@@ -1,6 +1,10 @@
 package com.example.navigacijaprojekat
 
+import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
+import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -9,14 +13,23 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.navigacijaprojekat.databinding.ActivityMapsBinding
 import com.example.navigacijaprojekat.model.City
 import com.example.navigacijaprojekat.model.data.DataSource
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlin.properties.Delegates
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+
+    //korisnikove trenutne koordinate
+    private var myLatitude : Double = 0.0
+    private var myLongitude : Double = 0.0
+
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
@@ -53,13 +66,30 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.app_bar, menu)
         return super.onCreateOptionsMenu(menu)
     }
+    @SuppressLint("MissingPermission")
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.podijeli -> {
-            // User chose the "Settings" item, show the app settings UI...
+
+                fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
+                    myLatitude = location!!.latitude
+                    myLongitude = location.longitude
+                    val sendIntent: Intent = Intent().apply {
+                        action = Intent.ACTION_SEND
+                        putExtra(Intent.EXTRA_TEXT, "Ja se nalazim na koordinatama: $myLatitude, $myLongitude ")
+                        type = "text/plain"
+                    }
+                    val shareIntent = Intent.createChooser(sendIntent, null)
+                    startActivity(shareIntent)
+            }
+            true
+        }
+        android.R.id.home -> {
+            onBackPressed()
             true
         }
         else -> {
@@ -68,7 +98,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         createDistanceMatrix()
