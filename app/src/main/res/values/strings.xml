@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NavigacijaProjekat</string>
+    <string name="app_name">Uncover</string>
     <string name="welcome">DOBRODOŠLI</string>
     <string name="showLocations">Prikaži gradove</string>
     <string name="addLocation">Dodaj lokaciju</string>
@@ -13,6 +13,5 @@
     <string name="close">CLOSE</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="calculating">Calculating....</string>
-
 
 </resources>

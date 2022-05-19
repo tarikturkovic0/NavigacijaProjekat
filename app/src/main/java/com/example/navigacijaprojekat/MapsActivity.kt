@@ -120,11 +120,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 distance = permutationDistance
                 result = permutation
                 var pathString = cityName + "-> "
-                for (city in result) {
-                    pathString += city.name + "-> "
+                result.forEachIndexed { i, city ->
+                    if(i< result.size-1) {
+                        pathString += city.name + "-> "
+                    }
+                    else{
+                        pathString += city.name
+                    }
                 }
                 binding.putanja.text = pathString
-                binding.distanca.text = "Ukupan put: "+  distance.toString() + " km"
+                binding.distanca.text = "Ukupan put: "+  distance.toInt().toString() + " km"
                 Log.d("distanca",""+distance.toString())
                 Log.d("rezz",result.toString())
 
