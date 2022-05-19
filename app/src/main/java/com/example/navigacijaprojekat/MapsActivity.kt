@@ -21,6 +21,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import java.util.*
 import kotlin.properties.Delegates
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -66,7 +67,71 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
     }
+    private fun permutationTotalDistance(list : List<City>) : Double {
+        var total_distance = 0.0
+        val cityName = intent.getStringExtra("city") // ovo vrv stavit kao atribut ksnije jer se koristi na 3 mjesta
 
+        // posto se pocetni grad ne nalazi u permutacijama(jer je uvijek prvi) racuna se distanca od pocetnog do prvog iz liste
+        val startingCityIndex = cityData.indexOf(cityData.find{it.name.compareTo(cityName!!) == 0})
+        val firstCityIndex =  cityData.indexOf(cityData.find{it.name.compareTo(list[0].name) == 0})
+        total_distance += distanceMatrix[startingCityIndex][firstCityIndex]
+        for (i in list.indices) { // onda se racuna distanca za ostale...
+
+            if (i+1 < list.size) {
+                val firstCityIndex = cityData.indexOf(cityData.find{it.name.compareTo(list[i].name) == 0}) // nalazi indeks prvog grada
+                val secondCityIndex =  cityData.indexOf(cityData.find{it.name.compareTo(list[i+1].name) == 0})
+                val distance : Double = distanceMatrix[firstCityIndex][secondCityIndex]
+                total_distance += distance
+            }
+        }
+        return total_distance
+    }
+    private fun permute(CityList: List<City>): List<List<City>> {
+        val result = LinkedList<LinkedList<City>>()
+        result += LinkedList<City>()
+
+        for(n in CityList){
+            insert(result, n)
+        }
+
+        return result
+    }
+
+    private fun insert(result: LinkedList<LinkedList<City>>, n: City){
+        repeat(result.size){
+            val list = result.removeFirst()
+            // insert n to every position in list.
+            for(i in 0..list.lastIndex+1){
+                val new = LinkedList(list)
+                new.add(i,n)
+                result += (new)
+            }
+        }
+    }
+    private fun shortestPath(permutations : List<List<City>>) : List<City> {
+        var distance = permutationTotalDistance(permutations[0]);
+        val cityName = intent.getStringExtra("city")
+        var result : List<City>
+        result = permutations[0]
+        for (permutation in permutations) {
+            //Log.d("staba",permutation.toString())
+            val permutationDistance = permutationTotalDistance(permutation)
+            if (permutationDistance < distance) {
+                distance = permutationDistance
+                result = permutation
+                var pathString = cityName + "-> "
+                for (city in result) {
+                    pathString += city.name + "-> "
+                }
+                binding.putanja.text = pathString
+                binding.distanca.text = "Ukupan put: "+  distance.toString() + " km"
+                Log.d("distanca",""+distance.toString())
+                Log.d("rezz",result.toString())
+
+            }
+        }
+        return result
+    }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.app_bar, menu)
         return super.onCreateOptionsMenu(menu)
@@ -131,6 +196,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         mMap.addMarker(MarkerOptions().position(city).title("Marker in ${cityName}"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(city))
+
+        // grad u kojem se nalazimo je uvijek prvi u permutacijama,pa se izbacuje iz liste
+        val citiesToPermute = cityData.toMutableList().filter { it.name.compareTo(cityName!!) != 0  }
+
+        val cityPermutations = permute(citiesToPermute)
+        shortestPath(cityPermutations)
+
     }
     // 1.Naci  distancu od svakog grada do svakog drugog grada - to ce biti 2d matrica -- GOTOVO
     // 2. Naci sve moguce permutacije iz liste gradova.
