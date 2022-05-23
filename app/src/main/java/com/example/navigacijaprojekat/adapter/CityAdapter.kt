@@ -24,9 +24,7 @@ class CityAdapter(private val context: Context, private val dataset: List<City>)
         val detailsButton : Button = view.findViewById(R.id.detailsButton)
         public fun detailsSetup(country : String,latituda : String,longituda : String,naziv : String) {
             val action = CitiesListFragmentDirections.actionCitiesListFragment2ToCityDetailsFragment2(country,latituda,longituda,naziv)
-
             detailsButton.setOnClickListener {
-
                 view.findNavController().navigate(action)
             }
         }

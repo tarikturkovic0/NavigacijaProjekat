@@ -209,15 +209,4 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         shortestPath(cityPermutations)
 
     }
-    // 1.Naci  distancu od svakog grada do svakog drugog grada - to ce biti 2d matrica -- GOTOVO
-    // 2. Naci sve moguce permutacije iz liste gradova.
-    // 3. Za svaku permutaciju izracunati ukupnu distancu
-// +(koristeci matricu znat cu koji je grad gdje...)
-    // 4. Vratit najmanju distancu
-
-
-    // BELAJ JE STO IMAMO 100+ GRADOVA
-// A OVAJ ALGORITAM CE DA POGINE NA PREKO DESETAK GRADOVA KOLIKO SAM UPRATIO
-
-
 }

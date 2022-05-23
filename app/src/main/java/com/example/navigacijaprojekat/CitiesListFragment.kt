@@ -51,8 +51,6 @@ class CitiesListFragment : Fragment() {
             layoutManager = LinearLayoutManager(activity)
             adapter = CityAdapter(view.context,cityDataSet)
         }
-
-
     }
 
 

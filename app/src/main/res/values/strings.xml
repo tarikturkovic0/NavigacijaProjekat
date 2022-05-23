@@ -13,5 +13,6 @@
     <string name="close">CLOSE</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="calculating">Calculating....</string>
+    <string name="pokrenipretragu">Pokreni pretragu</string>
 
 </resources>

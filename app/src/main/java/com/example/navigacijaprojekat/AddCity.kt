@@ -45,7 +45,6 @@ class AddCity : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         if(true) {
             requireView().findNavController().navigate(com.example.navigacijaprojekat.R.id.action_homeFragment_to_citiesListFragment2)
         }

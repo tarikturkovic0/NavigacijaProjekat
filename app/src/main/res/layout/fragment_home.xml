@@ -20,19 +20,6 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-        </LinearLayout>
-
         <androidx.appcompat.widget.AppCompatButton
 
             android:id="@+id/showCitiesBtn"
@@ -52,7 +39,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+            app:layout_constraintTop_toBottomOf="@+id/addCityBtn"
+            app:layout_constraintVertical_bias="0.222" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/addCityBtn"

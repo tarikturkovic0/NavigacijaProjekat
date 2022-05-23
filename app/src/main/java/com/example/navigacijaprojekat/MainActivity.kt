@@ -14,13 +14,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState);
         val preferences = getSharedPreferences("Cities", Context.MODE_PRIVATE)
         val cities = preferences.getString("cities",null)
-        if (cities == null) { // Prvi put ikada kada se pokrene app nece imati ( Ovo mozda radi nisam siguran)
-            Log.d("pise","pise")
+        if (cities == null) {
             val editor : SharedPreferences.Editor  = preferences.edit().putString("cities",
                 citiesJSON)
             editor.apply()
         }
-
 
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(
             this, R.layout.activity_main)
