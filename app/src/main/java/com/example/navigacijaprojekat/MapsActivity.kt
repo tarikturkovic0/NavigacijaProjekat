@@ -1,12 +1,10 @@
 package com.example.navigacijaprojekat
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +20,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import java.util.*
-import kotlin.properties.Delegates
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -145,7 +142,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     // prolazi kroz svaku permutaciju i poziva funkciju da izracuna distancu ukupnu za tu permutaciju
     // kada se nadje distanca koja je manja od trenutne , distanca i najkraci put se prikazuju na ekranu
     private fun shortestPath(permutations : List<List<City>>) : List<City> {
-        var distance = permutationTotalDistance(permutations[0]);
+        var distance = permutationTotalDistance(permutations[0])
         val cityName = intent.getStringExtra("city")
         var result : List<City>
         result = permutations[0]

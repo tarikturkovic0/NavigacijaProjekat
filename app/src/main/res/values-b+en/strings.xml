@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Uncover</string>
+    <string name="welcome">WELCOME</string>
+    <string name="showLocations">Show cities</string>
+    <string name="addLocation">Add location</string>
+    <string name="lociraj">Locate</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detalji">Details</string>
+    <string name="home">Home</string>
+    <string name="podijeli">Share</string>
+    <string name="podijelilokaciju">Share my location</string>
+    <string name="open">OPEN</string>
+    <string name="close">CLOSE</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="calculating">Calculating....</string>
+    <string name="pokrenipretragu">START SEARCH</string>
+
+</resources>
