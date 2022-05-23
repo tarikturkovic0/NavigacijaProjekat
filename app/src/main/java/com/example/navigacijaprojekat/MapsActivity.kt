@@ -38,7 +38,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var distanceMatrix : Array<Array<Double>>
 
     private fun distance(lat1 : Double,lon1 : Double,lat2 : Double,lon2 : Double) : Double {
+    /*
 
+    Racuna distancu izmedju 2 koordinate
+    ako su iste vraca nulu
+    vraca distancu u KILOMETRIMA
+     */
         if ((lat1 == lat2) && (lon1 == lon2)) {
             return 0.0
         }
@@ -54,6 +59,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
     private fun createDistanceMatrix() {
+        /*
+        ucitava gradove iz shared preferenci i prosljedjuje ih u DataSource klasu gdje poziva
+         metodu loadCityData koja ce koristeci biblioteku serialization serijalizirati te podatke
+         u listu Citya . Nakon toga se prolazeci kroz svaki grad
+         kreira niz udaljenosti od svakog grada do tog grada..
+         primjer za prvi red:
+         [0,415151,313131]
+
+
+
+
+         */
         val citiesPreferences = this.getSharedPreferences("Cities", Context.MODE_PRIVATE)
         val citiesString  = citiesPreferences.getString("cities",null)
         cityData = DataSource(citiesString).loadCityData()
@@ -67,9 +84,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
     }
+
+    // prolazi kroz permutaciju tj kroz listu gradova i
+    // prvo sabira od naseg grada u kojem se nalazimo sa prvim gradom u permutaciji jer je uvijek pocetni grad iskljucen
+    // iz permutacije jer je uvijek na pocetku
+
+    //zatim racuna distancu od prvog do drugog, pa od drugog do treceg itd..
+    // index grad u listi gradova koja se dobije u cityData odgovara indexu reda u matrici distance za taj grad
+    // znaci ako mi je sarajevo npr peti grad u listi , u petom redu matrice distance cu imati sve udaljenost od sarajeva do drugh gradova
     private fun permutationTotalDistance(list : List<City>) : Double {
         var total_distance = 0.0
-        val cityName = intent.getStringExtra("city") // ovo vrv stavit kao atribut ksnije jer se koristi na 3 mjesta
+        val cityName = intent.getStringExtra("city")
 
         // posto se pocetni grad ne nalazi u permutacijama(jer je uvijek prvi) racuna se distanca od pocetnog do prvog iz liste
         val startingCityIndex = cityData.indexOf(cityData.find{it.name.compareTo(cityName!!) == 0})
@@ -87,6 +112,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         return total_distance
     }
     private fun permute(CityList: List<City>): List<List<City>> {
+        // funkcionise tako sto za svaki grad pozove funkciju insert
+        // vraca matricu svih permutacija
         val result = LinkedList<LinkedList<City>>()
         result += LinkedList<City>()
 
@@ -96,6 +123,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         return result
     }
+
+
+    // insert ce ubaciti  grad 'n' na svaku poziciju u svakoj listi
+    // kada se insert pozove za svaki grad , (u funkciji permute) dobijaju se sve permutacije.
+
+    // nisam 100% siguran ali ja mislim da je kompleksnost (n-1) faktorijel gdje je n broj gradova koje imamo sacuvano
 
     private fun insert(result: LinkedList<LinkedList<City>>, n: City){
         repeat(result.size){
@@ -108,6 +141,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
     }
+
+    // prolazi kroz svaku permutaciju i poziva funkciju da izracuna distancu ukupnu za tu permutaciju
+    // kada se nadje distanca koja je manja od trenutne , distanca i najkraci put se prikazuju na ekranu
     private fun shortestPath(permutations : List<List<City>>) : List<City> {
         var distance = permutationTotalDistance(permutations[0]);
         val cityName = intent.getStringExtra("city")
@@ -116,7 +152,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         for (permutation in permutations) {
             //Log.d("staba",permutation.toString())
             val permutationDistance = permutationTotalDistance(permutation)
-            if (permutationDistance < distance) {
+            if (permutationDistance <= distance) {
                 distance = permutationDistance
                 result = permutation
                 var pathString = cityName + "-> "
@@ -130,8 +166,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
                 binding.putanja.text = pathString
                 binding.distanca.text = "Ukupan put: "+  distance.toInt().toString() + " km"
-                Log.d("distanca",""+distance.toString())
-                Log.d("rezz",result.toString())
 
             }
         }
@@ -175,11 +209,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setSupportActionBar(findViewById(R.id.toolbar))
         getSupportActionBar()?.setDisplayShowTitleEnabled(false);
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        /*TEST for (strings in distanceMatrix) {
-            for (string in strings) {
-               Log.d("distanca",string.toString())
-            }
-        }*/
 
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -205,7 +234,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // grad u kojem se nalazimo je uvijek prvi u permutacijama,pa se izbacuje iz liste
         val citiesToPermute = cityData.toMutableList().filter { it.name.compareTo(cityName!!) != 0  }
 
+        // nalazi sve permutacije(najzahtjevniji dio algoritma )
         val cityPermutations = permute(citiesToPermute)
+
+        // racuna najkraci put od tih permutacija
         shortestPath(cityPermutations)
 
     }
